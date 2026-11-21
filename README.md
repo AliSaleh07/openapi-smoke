@@ -54,3 +54,7 @@ openapi-smoke test api_spec.yaml --dry-run --format junit -o results.xml
 ```bash
 pytest -v tests/
 ```
+---
+
+## Safe Testing & Authorized Use Disclaimer
+*OpenAPI Smoke is developed for automated API testing and CI/CD validation. Live smoke tests must only be executed against API endpoints you own or have explicit written permission to test. Unauthorized automated testing against third-party endpoints is strictly prohibited.*
