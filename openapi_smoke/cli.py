@@ -49,6 +49,11 @@ def parse_header_list(header_list) -> dict:
 
 
 def main(argv=None) -> int:
+    if hasattr(sys.stdout, 'reconfigure'):
+        try:
+            sys.stdout.reconfigure(encoding='utf-8', errors='replace')
+        except Exception:
+            pass
     parser = build_parser()
     args = parser.parse_args(argv)
 
@@ -76,7 +81,7 @@ def main(argv=None) -> int:
                 print(json.dumps({"valid": len(errors) == 0, "issues": out}, indent=2))
             else:
                 if not validation_issues:
-                    print("✅ Specification structure is valid with 0 issues.")
+                    print("[OK] Specification structure is valid with 0 issues.")
                 else:
                     for i in validation_issues:
                         print(f"[{i.severity.value}] {i.path}: {i.message}")
