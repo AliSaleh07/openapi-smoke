@@ -1,0 +1,19 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "Swagger 2.0 Sample API",
+    "version": "1.0.0"
+  },
+  "paths": {
+    "/ping": {
+      "get": {
+        "summary": "Health ping",
+        "responses": {
+          "200": {
+            "description": "Server is responsive"
+          }
+        }
+      }
+    }
+  }
+}

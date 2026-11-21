@@ -12,6 +12,16 @@ def test_load_valid_spec():
     assert data["info"]["title"] == "TaskForge API"
 
 
+def test_load_swagger_v2_json():
+    path = os.path.join(os.path.dirname(__file__), "..", "fixtures", "sample_swagger_v2.json")
+    data = load_spec_file(path)
+    assert data["swagger"] == "2.0"
+    ops = extract_operations(data)
+    assert len(ops) == 1
+    assert ops[0].path == "/ping"
+    assert ops[0].method == "GET"
+
+
 def test_extract_operations():
     path = os.path.join(os.path.dirname(__file__), "..", "fixtures", "sample_taskforge_spec.yaml")
     data = load_spec_file(path)
